@@ -1,12 +1,14 @@
 <html>
 
     <head>
-
+    	<!-- Hosted Bootstrap CSS -->
         <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Local Material Design CSS -->
         <link href="lib/dist/materialdesign/css/ripples.min.css" rel="stylesheet">
         <link href="lib/dist/materialdesign/css/material-wfont.min.css" rel="stylesheet">
-        <!-- ArcGIS API for JavaScript CSS-->
+        <!-- Hosted ArcGIS API for JavaScript CSS-->
 	    <link rel="stylesheet" href="//js.arcgis.com/3.10/js/esri/css/esri.css">
+	    <!-- Local Bootstrap Map for JavaScript CSS-->
         <link rel="stylesheet" href="lib/dist/bootstrapmap/css/bootstrapmap.min.css">
         <style>
         	#mapPanel {
@@ -19,13 +21,9 @@
     </head>
 
     <body>
-
-        <!-- Your site -->
-
+        <!-- Page Components -->
         <h1>Test the template</h1>
-        <h3 class="text-muted">If you can see the ripple effect on clicking them, then you are good to go!</h3>
-
-
+        
         <p class="bs-component">
             <a href="javascript:void(0)" class="btn btn-default">Default</a>
             <a href="javascript:void(0)" class="btn btn-primary">Primary</a>
@@ -34,22 +32,27 @@
         <div id="mapPanel">
         	<div id="mapDiv"></div>
         </div>
-        <!-- Your site ends -->
+        <!-- End Page Components -->
+        <!-- Hosted JQuery -->
         <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <!-- Hosted Bootstrap -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <!-- Local Material Design Support Files --> 
         <script src="lib/dist/materialdesign/js/ripples.min.js"></script>
         <script src="lib/dist/materialdesign/js/material.min.js"></script>
         <!-- ArcGIS API for JavaScript library references -->
   		<script type="text/javascript">
-        var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
-        var dojoConfig = {
-            packages: [{
-                name: "application",
-                location: package_path + '/lib/dist/bootstrapmap/js'
-            }]
-        };
-    </script>
+	        var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+	        var dojoConfig = {
+	            packages: [{
+	                name: "application",
+	                location: package_path + '/lib/dist/bootstrapmap/js'
+	            }]
+	        };
+	    </script>
+  		<!-- Hosted Esri JS API -->
   		<script src="//js.arcgis.com/3.10compact"></script>
+  		<!-- Application Logic -->
         <script>
         require(["esri/map", "application/bootstrapmap", "dojo/domReady!"], 
           function(Map, BootstrapMap) {
@@ -62,12 +65,6 @@
             });
         });
     </script>
-        <script>
-            $(document).ready(function() {
-                
-            });
-        </script>
-
     </body>
 
 </html>
