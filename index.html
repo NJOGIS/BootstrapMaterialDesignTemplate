@@ -1,0 +1,75 @@
+<html>
+
+    <head>
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+        <link href="lib/dist/materialdesign/css/ripples.min.css" rel="stylesheet">
+        <link href="lib/dist/materialdesign/css/material-wfont.min.css" rel="stylesheet">
+        <!-- ArcGIS API for JavaScript CSS-->
+	    <link rel="stylesheet" href="//js.arcgis.com/3.10/js/esri/css/esri.css">
+        <link rel="stylesheet" href="lib/dist/bootstrapmap/css/bootstrapmap.min.css">
+        <style>
+        	#mapPanel {
+		        padding: 0;
+		      }
+        	#mapDiv{
+        		height: 400px;
+        	}
+        </style>
+    </head>
+
+    <body>
+
+        <!-- Your site -->
+
+        <h1>Test the template</h1>
+        <h3 class="text-muted">If you can see the ripple effect on clicking them, then you are good to go!</h3>
+
+
+        <p class="bs-component">
+            <a href="javascript:void(0)" class="btn btn-default">Default</a>
+            <a href="javascript:void(0)" class="btn btn-primary">Primary</a>
+            <a href="javascript:void(0)" class="btn btn-link">Link</a>
+        </p>
+        <div id="mapPanel">
+        	<div id="mapDiv"></div>
+        </div>
+        <!-- Your site ends -->
+        <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script src="lib/dist/materialdesign/js/ripples.min.js"></script>
+        <script src="lib/dist/materialdesign/js/material.min.js"></script>
+        <!-- ArcGIS API for JavaScript library references -->
+  		<script type="text/javascript">
+        var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+        var dojoConfig = {
+            //The location.pathname.replace() logic below may look confusing but all its doing is
+            // enabling us to load the api from a CDN and load local modules from the correct location.
+            packages: [{
+                name: "application",
+                location: package_path + '/lib/dist/bootstrapmap/js'
+            }]
+        };
+    </script>
+  		<script src="//js.arcgis.com/3.10compact"></script>
+        <script>
+        require(["esri/map", "application/bootstrapmap", "dojo/domReady!"], 
+          function(Map, BootstrapMap) {
+            $.material.init();
+            // Get a reference to the ArcGIS Map class
+            var map = BootstrapMap.create("mapDiv",{
+              basemap:"national-geographic",
+              center:[-122.45,37.77],
+              zoom:12
+            });
+        });
+    </script>
+        <script>
+            $(document).ready(function() {
+                
+            });
+        </script>
+
+    </body>
+
+</html>
